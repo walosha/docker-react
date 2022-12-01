@@ -7,6 +7,10 @@ RUN mkdir -p node_modules/.cache && chmod -R 777 node_modules/.cache
 COPY . .
 RUN npm run build
 
-FROM nginx
-COPY --from=0 /app/build /usr/share/nginx/html
+# production environment
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+# to make react-router work with nginx
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
