@@ -25,6 +25,16 @@ jobs:
         run: docker push walosha/docker-react
       - name: run test scrpt
         run: docker run -e CI=true walosha/docker-react npm run test
+      - name: Run String Replace
+        uses: frabert/replace-string-action@master
+        id: format-time
+        with:
+          pattern: '[:\.]+'
+          string: "${{ steps.current-time.outputs.time }}"
+          replace-with: "-"
+          flags: "g"
+      - name: Generate Deployment Package
+        run: zip -r deploy.zip * -x "**node_modules**"
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
         with:
