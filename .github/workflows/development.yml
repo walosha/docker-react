@@ -18,7 +18,7 @@ jobs:
           password: ${{secrets.DOCKERHUB_TOKEN}}
           logout: true
       - name: Build Server image
-        run: docker build -t walosha/docker-react -f Dockerfile.dev .
+        run: docker build -t walosha/docker-react -f Dockerfile .
       - name: Tag our Image
         run: docker tag walosha/docker-react walosha/docker-react:latest
       - name: Push to dockerhub
