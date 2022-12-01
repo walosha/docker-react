@@ -12,4 +12,4 @@ FROM nginx:stable-alpine
 EXPOSE 80
 COPY --from=build /app/build /usr/share/nginx/html
 # to make react-router work with nginx
-COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+# COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
