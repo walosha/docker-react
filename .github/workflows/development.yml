@@ -23,8 +23,8 @@ jobs:
         run: docker tag walosha/docker-react walosha/docker-react:latest
       - name: Push to dockerhub
         run: docker push walosha/docker-react
-      - name: run test scrpt
-        run: docker run -e CI=true walosha/docker-react npm run test
+      # - name: run test scrpt
+      #   run: docker run -e CI=true walosha/docker-react npm run test
       - name: Get timestamp
         uses: gerred/actions/current-time@master
         id: current-time
