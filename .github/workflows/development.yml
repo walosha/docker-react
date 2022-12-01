@@ -26,7 +26,7 @@ jobs:
       - name: run test scrpt
         run: docker run -e CI=true walosha/docker-react npm run test
       - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v14
+        uses: einaregilsson/beanstalk-deploy@v21
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
