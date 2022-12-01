@@ -12,12 +12,12 @@ services:
     volumes:
       - /usr/app/node_modules
       - .:/usr/app
-  tests:
-    stdin_open: true
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - /usr/app/node_modules
-      - .:/usr/app
-    command: ["npm", "run", "test"]
+  # tests:
+  #   stdin_open: true
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - /usr/app/node_modules
+  #     - .:/usr/app
+  #   command: ["npm", "run", "test"]
